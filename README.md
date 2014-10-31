@@ -8,6 +8,9 @@ Ansible playbook which deploy pptpd and squid on Ubuntu 14.04 only.
 
 ## Usage
 
-Change the IP address in `hosts` which want to deploy, then just run the following:
+Change the IP address in `hosts` which want to deploy, then just run with your real username and password.
 
-	$ ansible-playbook -i hosts site.yml --extra-vars '{"hosts":"DO-SGP","username":"yourusername","password":"123456"}'
+The following is an example:
+
+	$ ansible-playbook -i hosts site.yml --extra-vars '{"hosts":"DO-SGP","username":"yourusername","password":"yourpassword"}'
+

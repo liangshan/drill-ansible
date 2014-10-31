@@ -1,8 +1,8 @@
 [DO-SGP]
-ladder-sgp.liangshan.me ansible_ssh_port=22 ansible_ssh_host=128.199.200.207
+drill-sgp.liangshan.me 
 
 [DO-USA]
-ladder-us.liangshan.me ansible_ssh_port=22222
+drill-us.liangshan.me
 
 [digitalocean:children]
 DO-SGP
