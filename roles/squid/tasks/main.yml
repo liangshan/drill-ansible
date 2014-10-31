@@ -1,0 +1,14 @@
+---
+- name: install squid
+  apt: pkg=squid state=installed
+
+- name: backup default configure
+  command: 'cp /etc/squid3/squid.conf /etc/squid3/squid.conf.default'
+  args:
+    creates: /etc/squid3/squid.conf.default
+
+- name: replace with private configure
+  copy: src=squid.conf
+        dest=/etc/squid3/squid.conf
+        owner=root group=root mode=0644
+  notify: restart squid

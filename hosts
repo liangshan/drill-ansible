@@ -1,0 +1,13 @@
+[DO-SGP]
+ladder-sgp.liangshan.me ansible_ssh_port=22 ansible_ssh_host=128.199.200.207
+
+[DO-USA]
+ladder-us.liangshan.me ansible_ssh_port=22222
+
+[digitalocean:children]
+DO-SGP
+DO-USA
+
+[digitalocean:vars]
+mtu=1396
+

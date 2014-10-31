@@ -1,0 +1,8 @@
+---
+- hosts: "{{ hosts }}"
+  user: root
+  
+  roles:
+    - common
+    - pptp
+    - squid

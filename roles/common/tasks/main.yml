@@ -1,0 +1,23 @@
+---
+- name: ensure apt cache has been updated
+  apt: update_cache=yes cache_valid_time=86400
+
+- name: ensure locale is en_US.UTF-8
+  command: /usr/sbin/locale-gen en_US.UTF-8
+
+- name: set net.ipv4.ip_forward
+  sysctl: name=net.ipv4.ip_forward value=1 state=present
+
+- name: install iptables-persistent
+  apt: pkg=iptables-persistent state=installed
+
+- name: start iptables-persistent
+  service: name=iptables-persistent state=started enabled=true
+
+- name: forbidden password login
+  lineinfile: dest=/etc/ssh/sshd_config 
+              backrefs=yes
+              state=present 
+              regexp='#PasswordAuthentication' 
+              line='PasswordAuthentication no'
+  notify: restart sshd

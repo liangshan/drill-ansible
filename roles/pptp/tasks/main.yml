@@ -1,0 +1,34 @@
+---
+- name: install pptpd
+  apt: pkg=pptpd state=installed
+
+- name: put default pptpd conf
+  copy: src=pptpd.conf
+        dest=/etc/pptpd.conf
+        owner=root group=root mode=0644
+  notify: restart pptpd
+
+- name: set default dns
+  lineinfile: dest=/etc/ppp/pptpd-options  
+              backrefs=yes
+              state=present
+              regexp='#ms-dns'
+              line='ms-dns 8.8.8.8\nms-dns 8.8.4.4'
+  notify: restart pptpd
+
+- name: set default MTU
+  lineinfile: dest=/etc/ppp/options 
+              backrefs=yes
+              state=present 
+              regexp='#mtu' 
+              line='mtu 1396'
+  notify: restart pptpd
+
+- name: ensure account present
+  template: src=chap-secrets dest=/etc/ppp/chap-secrets
+            owner=root group=root mode=0644
+  notify: restart pptpd
+
+- name: create nat rule and save
+  shell: 'iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE && iptables-save > /etc/iptables/rules.v4'
+
