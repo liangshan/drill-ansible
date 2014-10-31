@@ -10,4 +10,4 @@ Ansible playbook which deploy a drill on Ubuntu 14.04 only.
 
 Change the IP address in `hosts` which want to deploy, then just run the following:
 
-	$ ansible-playbook -i hosts site.yml --extra-vars "hosts=DO-SGP user=liangshan password=123456"
+	$ ansible-playbook -i hosts site.yml --extra-vars "hosts=DO-SGP user=username password=123456"
