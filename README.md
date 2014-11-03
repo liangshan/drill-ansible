@@ -22,3 +22,6 @@ Mac, for example, after connected to your PPTP VPN, HTTP proxy is available at `
 
 Configuring iPhone is quite similar to Mac, setup PPTP VPN and HTTP proxy at the same time.
 
+## Earn $10 on DigitalOcean
+
+DigitalOcean is awesome. If this repo is helpful to you, just click [here](https://www.digitalocean.com/?refcode=c07abab931c2) to create your first VPS and earn $10 with my discount code.
