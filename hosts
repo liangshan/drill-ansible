@@ -1,12 +1,12 @@
 [DO-SGP]
 drill-sgp.liangshan.me 
 
-[DO-USA]
-drill-us.liangshan.me
+[DO-SFO]
+drill-sfo.liangshan.me
 
 [digitalocean:children]
 DO-SGP
-DO-USA
+DO-SFO
 
 [digitalocean:vars]
 mtu=1396
