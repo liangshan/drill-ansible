@@ -14,6 +14,8 @@ The following is an example:
 
 	$ ansible-playbook -i hosts site.yml --extra-vars '{"hosts":"DO-SGP","username":"yourusername","password":"yourpassword"}'
 
+And [here](https://opensourcehacker.com/2015/04/12/almost-free-netflix-vpn-on-amazon-ec2-set-up-in-30-minutes-using-ansible/) is an article about how to use this playbook with EC2. 
+
 ## configure your Mac or iPhone
 
 Now you have a PPTP server and a HTTP proxy (squid), use them with a powerful combination.
