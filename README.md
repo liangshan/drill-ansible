@@ -12,7 +12,7 @@ Change the IP address in `hosts` which want to deploy, then just run with your r
 
 The following is an example:
 
-	$ ansible-playbook -i hosts site.yml --extra-vars '{"hosts":"DO-SGP","username":"yourusername","password":"yourpassword"}'
+	$ ansible-playbook -i hosts site.yml --extra-vars '{"hosts":"DO-SG","username":"yourusername","password":"yourpassword"}'
 
 And [here](https://opensourcehacker.com/2015/04/12/almost-free-netflix-vpn-on-amazon-ec2-set-up-in-30-minutes-using-ansible/) is an article about how to use this playbook with EC2. 
 
