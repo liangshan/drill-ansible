@@ -1,10 +1,11 @@
 Drill ansible
 =============
 
-Ansible playbook which deploy pptpd and squid on Ubuntu 14.04 only.
+Ansible playbook which deploy pptpd, squid, shadowsocks on Ubuntu 14.04 only.
 
 ## Prepare
-+ ansible 1.8
+
++ ansible > 1.8
 
 ## Usage
 
@@ -16,13 +17,17 @@ The following is an example:
 
 And [here](https://opensourcehacker.com/2015/04/12/almost-free-netflix-vpn-on-amazon-ec2-set-up-in-30-minutes-using-ansible/) is an article about how to use this playbook with EC2. 
 
-## configure your Mac or iPhone
+## configure PPTP client
 
 Now you have a PPTP server and a HTTP proxy (squid), use them with a powerful combination.
 
 Mac, for example, after connected to your PPTP VPN, HTTP proxy is available at `192.168.23.1:3128`, just set the browser proxy (usually managed by a browser plugin) to it.
 
 Configuring iPhone is quite similar to Mac, setup PPTP VPN and HTTP proxy at the same time.
+
+## configure ShadowSocks client
+
+See official [wiki](https://github.com/shadowsocks/shadowsocks/wiki/Ports-and-Clients) for more info.
 
 ## Earn $10 on DigitalOcean
 
