@@ -1,6 +1,7 @@
 ---
 - hosts: "{{ hosts }}"
-  user: root
+  become: yes
+  become_user: root
   roles:
     - common
     - pptp
