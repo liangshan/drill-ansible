@@ -7,6 +7,10 @@ Ansible playbook which deploy pptpd, squid, shadowsocks on Ubuntu 14.04 only.
 
 + ansible > 1.8
 
+## NOTICE
+
+This will disable passsword login after executed, please make sure the cloud can deploy your ssh key automatically when create a new server.
+
 ## Usage
 
 Change the IP address in `hosts` which want to deploy, then just run with your real username and password.
