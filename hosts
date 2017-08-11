@@ -1,5 +1,5 @@
 [DO-SG]
-drill-sg.liangshan.me 
+drill-sg.liangshan.me ansible_ssh_user=root
 
 [DO-SFO]
 drill-sfo.liangshan.me

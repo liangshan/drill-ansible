@@ -1,0 +1,7 @@
+---
+shadowsocks_server_port: "8389"
+shadowsocks_local_port: "1080"
+shadowsocks_timeout: "120"
+shadowsocks_encryption_method: "aes-128-ctr"
+shadowsocks_protocol: "auth_aes128_md5"
+shadowsocks_obfs: "tls1.2_ticket_auth_compatible"

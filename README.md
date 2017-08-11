@@ -1,7 +1,7 @@
 Drill ansible
 =============
 
-Ansible playbook which deploy pptpd, squid, shadowsocks on Ubuntu 14.04 only.
+Ansible playbook which deploy pptpd, squid, shadowsocksr(aka SSR) on Ubuntu 14.04 only.
 
 ## Prepare
 
@@ -29,9 +29,9 @@ Mac, for example, after connected to your PPTP VPN, HTTP proxy is available at `
 
 Configuring iPhone is quite similar to Mac, setup PPTP VPN and HTTP proxy at the same time.
 
-## configure ShadowSocks client
+## SSR client for Mac
 
-See official [wiki](https://github.com/shadowsocks/shadowsocks/wiki/Ports-and-Clients) for more info.
+https://github.com/qinyuhang/ShadowsocksX-NG-R/releases
 
 ## Earn $10 on DigitalOcean
 

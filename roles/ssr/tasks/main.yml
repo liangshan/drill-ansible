@@ -1,0 +1,30 @@
+---
+- name: Install neccessary dependencies
+  apt: pkg={{ item }}
+  with_items: 
+    - git
+
+- name: Clone SSR to opt folder
+  git: 
+    repo: https://github.com/shadowsocksr-rm/shadowsocksr.git
+    dest: /opt/shadowsocksr
+    update: no
+
+- name: Init user-config files
+  command: /opt/shadowsocksr/initcfg.sh 
+  args:
+    chdir: /opt/shadowsocksr/
+    creates: /opt/shadowsocksr/user-config.json
+
+- name: Generate custom user-config files
+  template: src=user-config.json.j2
+            dest=/opt/shadowsocksr/user-config.json
+            owner=root
+            group=root
+            mode=755
+
+- name: Stop SSR
+  command: /opt/shadowsocksr/shadowsocks/stop.sh 
+
+- name: Start SSR
+  command: /opt/shadowsocksr/shadowsocks/logrun.sh

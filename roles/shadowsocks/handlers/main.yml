@@ -1,4 +1,0 @@
----
-- name: Restart ShadowSocks
-  service: name=shadowsocks
-           state=restarted
