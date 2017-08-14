@@ -1,7 +1,7 @@
 Drill ansible
 =============
 
-Ansible playbook which deploy pptpd, squid, shadowsocksr(aka SSR) on Ubuntu 14.04 only.
+Ansible playbook which deploy pptpd, squid, shad0ws0cksr(aka SSR) on Ubuntu 14.04 only.
 
 ## Prepare
 
