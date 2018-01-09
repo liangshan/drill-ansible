@@ -1,7 +1,7 @@
 Drill ansible
 =============
 
-Ansible playbook which deploy pptpd, squid, shad0ws0cksr(aka SSR) on Ubuntu 14.04 only.
+Ansible playbook which deploy pptpd, shadowsocksr(aka SSR) on Ubuntu 14.04 and 16.04.
 
 ## Prepare
 
@@ -23,11 +23,9 @@ And [here](https://opensourcehacker.com/2015/04/12/almost-free-netflix-vpn-on-am
 
 ## configure PPTP client
 
-Now you have a PPTP server and a HTTP proxy (squid), use them with a powerful combination.
+Now you have a PPTP server, use them with a powerful combination.
 
 Mac, for example, after connected to your PPTP VPN, HTTP proxy is available at `192.168.23.1:3128`, just set the browser proxy (usually managed by a browser plugin) to it.
-
-Configuring iPhone is quite similar to Mac, setup PPTP VPN and HTTP proxy at the same time.
 
 ## SSR client for Mac
 

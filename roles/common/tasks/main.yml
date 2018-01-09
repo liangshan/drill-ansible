@@ -1,3 +1,4 @@
+
 ---
 - name: ensure apt cache has been updated
   apt: update_cache=yes cache_valid_time=86400
@@ -10,6 +11,11 @@
 
 - name: start iptables-persistent
   service: name=iptables-persistent state=started enabled=true
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'
+
+- name: start iptables-persistent
+  service: name=netfilter-persistent state=started enabled=true
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '16.04'
 
 - name: forbidden password login
   lineinfile: dest=/etc/ssh/sshd_config

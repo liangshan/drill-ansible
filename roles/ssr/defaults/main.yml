@@ -1,5 +1,5 @@
 ---
-shadowsocks_server_port: "8389"
+shadowsocks_server_port: "443"
 shadowsocks_local_port: "1080"
 shadowsocks_timeout: "120"
 shadowsocks_encryption_method: "aes-128-ctr"

@@ -4,6 +4,5 @@
   become_user: root
   roles:
     - common
-    - pptp
-    - squid
+    # - pptp
     - ssr
