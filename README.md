@@ -21,15 +21,10 @@ The following is an example:
 
 And [here](https://opensourcehacker.com/2015/04/12/almost-free-netflix-vpn-on-amazon-ec2-set-up-in-30-minutes-using-ansible/) is an article about how to use this playbook with EC2. 
 
-## configure PPTP client
+## SSR client
 
-Now you have a PPTP server, use them with a powerful combination.
-
-Mac, for example, after connected to your PPTP VPN, HTTP proxy is available at `192.168.23.1:3128`, just set the browser proxy (usually managed by a browser plugin) to it.
-
-## SSR client for Mac
-
-https://github.com/qinyuhang/ShadowsocksX-NG-R/releases
++ Mac: https://github.com/qinyuhang/ShadowsocksX-NG-R/releases
++ iOS (available in US market): https://itunes.apple.com/us/app/potatso-lite/id1239860606?mt=8
 
 ## Earn $10 on DigitalOcean
 
