@@ -23,8 +23,17 @@
             group=root
             mode=755
 
-- name: Stop SSR
-  command: /opt/shadowsocksr/shadowsocks/stop.sh 
+- name: Put SysVinit conf
+  copy: src=init
+        dest=/etc/init.d/ssr
+        owner=root group=root mode=0755
 
-- name: Start SSR
-  command: /opt/shadowsocksr/shadowsocks/logrun.sh
+- name: Make sure SSR is enabled
+  service:
+    name: ssr
+    enabled: yes
+
+- name: Reload SSR
+  service: 
+    name: ssr 
+    state: reloaded

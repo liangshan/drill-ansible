@@ -1,0 +1,56 @@
+#!/bin/sh
+# chkconfig: 2345 90 10
+# description: Start or stop the Shadowsocks R server
+#
+### BEGIN INIT INFO
+# Provides: Shadowsocks-R
+# Required-Start: $network $syslog
+# Required-Stop: $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Description: Start or stop the Shadowsocks R server
+### END INIT INFO
+
+name=ssr
+START=/opt/shadowsocksr/shadowsocks/run.sh
+STOP=/opt/shadowsocksr/shadowsocks/stop.sh
+conf=/opt/shadowsocksr/user-config.json
+
+start(){
+    /bin/bash $START
+    RETVAL=$?
+    if [ "$RETVAL" = "0" ]; then
+        echo "$name start success"
+    else
+        echo "$name start failed"
+    fi
+}
+
+stop(){
+    /bin/bash $STOP
+    RETVAL=$?
+    if [ "$RETVAL" = "0" ]; then
+        echo "$name stop success"
+    else
+        echo "$name stop failed"
+    fi
+}
+
+case "$1" in
+'start')
+    start
+    ;;
+'stop')
+    stop
+    ;;
+'restart')
+    stop
+    start
+    RETVAL=$?
+    ;;
+*)
+    echo "Usage: $0 { start | stop | restart }"
+    RETVAL=1
+    ;;
+esac
+exit $RETVAL
