@@ -1,0 +1,3 @@
+---
+- name: restart ssr
+  service: name=ssr state=restarted

@@ -3,15 +3,27 @@
 - name: ensure apt cache has been updated
   apt: update_cache=yes cache_valid_time=86400
 
-- name: set net.ipv4.ip_forward
-  sysctl: name=net.ipv4.ip_forward value=1 state=present
-
-- name: install iptables-persistent
+- name: install iptables-persistent and dnsmasq
   apt: pkg=iptables-persistent state=installed
+  with_items:
+     - iptables-persistent
+     - dnsmasq
+
+- name: make sure tcp_hybla enabled
+  modprobe:
+    name: tcp_hybla
+    state: present
+
+- name: put sysctl conf
+  copy: src=sysctl.conf
+        dest=/etc/sysctl.conf
+        owner=root group=root mode=0644
+  notify: reload sysctl
 
 - name: start iptables-persistent
   service: name=iptables-persistent state=started enabled=true
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'
+  
 
 - name: start iptables-persistent
   service: name=netfilter-persistent state=started enabled=true

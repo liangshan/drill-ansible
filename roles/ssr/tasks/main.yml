@@ -10,11 +10,17 @@
     dest: /opt/shadowsocksr
     update: no
 
+- name: Put SysVinit conf
+  copy: src=init
+        dest=/etc/init.d/ssr
+        owner=root group=root mode=0755
+
 - name: Init user-config files
   command: /opt/shadowsocksr/initcfg.sh 
   args:
     chdir: /opt/shadowsocksr/
     creates: /opt/shadowsocksr/user-config.json
+  notify: restart ssr
 
 - name: Generate custom user-config files
   template: src=user-config.json.j2
@@ -22,18 +28,15 @@
             owner=root
             group=root
             mode=755
+  notify: restart ssr
 
-- name: Put SysVinit conf
-  copy: src=init
-        dest=/etc/init.d/ssr
+- name: Put SSR dns conf
+  copy: src=dns.conf
+        dest=/opt/shadowsocksr/shadowsocks/dns.conf
         owner=root group=root mode=0755
-
+  notify: restart ssr
+  
 - name: Make sure SSR is enabled
   service:
     name: ssr
     enabled: yes
-
-- name: Reload SSR
-  service: 
-    name: ssr 
-    state: reloaded
