@@ -1,7 +1,7 @@
 Drill ansible
 =============
 
-Ansible playbook which deploy pptpd, shadowsocksr(aka SSR) on Ubuntu 14.04 and 16.04.
+Ansible playbook which deploy shadowsocksr(aka SSR) and kcptun on Ubuntu 16.04.
 
 ## Prepare
 
@@ -13,13 +13,11 @@ This will disable password login after executed, please make sure the cloud can 
 
 ## Usage
 
-Change the IP address in `hosts` which want to deploy, then just run with your real username and password.
+Change the IP address in `hosts` which want to deploy, then just run with your password.
 
 The following is an example:
 
-	$ ansible-playbook -i hosts site.yml --extra-vars '{"hosts":"DO-SG","username":"yourusername","password":"yourpassword"}'
-
-And [here](https://opensourcehacker.com/2015/04/12/almost-free-netflix-vpn-on-amazon-ec2-set-up-in-30-minutes-using-ansible/) is an article about how to use this playbook with EC2. 
+	$ ansible-playbook -i hosts site.yml --extra-vars '{"hosts":"DO-SG", "password":"yourpassword"}'
 
 ## SSR client
 

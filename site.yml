@@ -4,5 +4,4 @@
   become_user: root
   roles:
     - common
-    # - pptp
     - ssr
