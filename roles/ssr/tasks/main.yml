@@ -30,6 +30,13 @@
             mode=755
   notify: restart ssr
 
+- name: Generate logrotate config file
+  copy: src=logrotate
+        dest=/etc/logrotate.d/ssr
+        owner=root
+        group=root
+        mode=644
+
 - name: Put SSR dns conf
   copy: src=dns.conf
         dest=/opt/shadowsocksr/shadowsocks/dns.conf

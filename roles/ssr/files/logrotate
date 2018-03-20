@@ -1,0 +1,11 @@
+/var/log/shadowsocksr.log {
+    daily
+    compress
+    delaycompress
+    rotate 2
+    missingok
+    nocreate
+    postrotate
+        test ! -x /etc/init.d/ssr || /etc/init.d/ssr restart
+    endscript
+}
