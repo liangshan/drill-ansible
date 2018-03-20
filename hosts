@@ -7,10 +7,12 @@ drill-sfo.liangshan.me
 [ALIYUN-SV]
 drill-sv.liangshan.me ansible_ssh_user=root
 
+[ALIYUN-HK]
+drill-hk.liangshan.me ansible_ssh_user=root
+
 [digitalocean:children]
 DO-SG
 DO-SFO
 
 [digitalocean:vars]
 mtu=1396
-
