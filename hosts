@@ -1,18 +1,10 @@
-[DO-SG]
-drill-sg.liangshan.me ansible_ssh_user=root
-
-[DO-SFO]
-drill-sfo.liangshan.me
-
 [ALIYUN-SV]
 drill-sv.liangshan.me ansible_ssh_user=root
 
-[ALIYUN-HK]
-drill-hk.liangshan.me ansible_ssh_user=root
+[ALIYUN-PROXY]
+proxy.liangshan.me ansible_ssh_user=root
 
-[digitalocean:children]
-DO-SG
-DO-SFO
 
-[digitalocean:vars]
-mtu=1396
+[ALIYUN:children]
+ALIYUN-SV
+ALIYUN-PROXY
