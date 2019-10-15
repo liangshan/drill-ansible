@@ -1,0 +1,17 @@
+---
+- name: Download kcptun
+  get_url:
+    url: https://github.com/xtaci/kcptun/releases/download/v20190924/kcptun-linux-amd64-20190924.tar.gz
+    dest: /root/kcptun-linux-amd64-20190924.tar.gz
+
+- name: Unarchive kcptun
+  unarchive:
+    src: /root/kcptun-linux-amd64-20190924.tar.gz
+    dest: /opt/kcptun
+    copy: no
+
+- name: put supervisord conf
+  template: src=supervisord.conf.j2
+        dest=/etc/supervisor/conf.d/kcptun-server-ssr.conf
+        owner=root group=root mode=0644
+  notify: restart supervisord

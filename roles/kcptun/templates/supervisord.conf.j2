@@ -1,0 +1,8 @@
+[program:kcptun-server-ssr]
+directory = /opt/kcptun
+command = /opt/kcptun/server_linux_amd64 -t 127.0.0.1:{{ shadowsocks_server_port }} -l :{{ kcptun_server_port }} --key {{ password }} --crypt aes-128 --mode fast2
+autostart = true
+autorestart = true
+user = root
+redirect_stderr = true
+stdout_logfile = /var/log/supervisor/kcp_server_ssr.log

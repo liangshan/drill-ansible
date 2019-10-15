@@ -1,0 +1,3 @@
+---
+shadowsocks_server_port: "443"
+kcptun_server_port: "5000"

@@ -1,0 +1,8 @@
+[program:kcptun-client]
+directory = /opt/kcptun
+command = /opt/kcptun/client_linux_amd64 -l :{{ kcptun_client_port }} -r {{ remote_host }}:{{ kcptun_server_port }} --crypt aes-128 --mode fast2 --key {{ password }}
+autostart = true
+autorestart = true
+user = root
+redirect_stderr = true
+stdout_logfile = /var/log/supervisor/kcptun_client.log

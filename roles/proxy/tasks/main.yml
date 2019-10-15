@@ -1,0 +1,39 @@
+---
+- name: Download kcptun
+  get_url:
+    url: https://github.com/xtaci/kcptun/releases/download/v20190924/kcptun-linux-amd64-20190924.tar.gz
+    dest: /root/kcptun-linux-amd64-20190924.tar.gz
+
+- name: Unarchive kcptun
+  unarchive:
+    src: /root/kcptun-linux-amd64-20190924.tar.gz
+    dest: /opt/kcptun
+    copy: no
+
+- name: put supervisord conf
+  template: src=supervisord.conf.j2
+        dest=/etc/supervisor/conf.d/kcptun-client.conf
+        owner=root group=root mode=0644
+  notify: restart supervisord
+
+- name: clone SSR client script
+  git:
+    repo: 'http://git.mrwang.pw/Reed/Linux_ssr_script.git'
+    dest: /root/Linux_ssr_script/
+
+- name: install ssr client
+  shell: ssr install
+  args:
+    chdir: /root/Linux_ssr_script/
+    creates: /root/.local/share/shadowsocksr/
+
+- name: put ssr client config
+  template: src=config.json.j2
+        dest=/root/.local/share/shadowsocksr/config.json
+        owner=root group=root mode=0644
+
+- name: start ssr client
+  shell: ssr start
+  ignore_errors: yes
+  args:
+    chdir: /root/Linux_ssr_script/

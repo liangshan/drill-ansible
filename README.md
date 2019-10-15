@@ -31,6 +31,8 @@ If you need a proxy server, which will connect the server for you, just do this:
 
     $ ansible-playbook -i hosts proxy.yml --extra-vars '{"hosts":"ALIYUN-PROXY", "password":"yourpassword"}'
 
+> NOTICE: same password as first step.
+
 Then you only need to set the system/application's proxy to `PROXY_SERVER:1086` and have fun.
 
 Futher more, if you don't want to make the proxy server go public, just build an OpenVPN server according to the instructions.

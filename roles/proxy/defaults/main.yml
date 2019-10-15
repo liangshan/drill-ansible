@@ -1,0 +1,9 @@
+---
+kcptun_client_port: "8388"
+kcptun_server_port: "5000"
+socks5_proxy_port: "1086"
+remote_host: "drill-sv.liangshan.me"
+shadowsocks_timeout: "120"
+shadowsocks_encryption_method: "aes-256-cfb"
+shadowsocks_protocol: "origin"
+shadowsocks_obfs: "http_simple"
