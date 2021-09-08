@@ -1,6 +1,9 @@
 [ALIYUN-SV]
 drill-sv.liangshan.me ansible_ssh_user=root
 
+[ALIYUN-HK]
+drill-hk.liangshan.me ansible_ssh_user=root
+
 [ALIYUN-PROXY]
 proxy.liangshan.me ansible_ssh_user=root
 
@@ -8,3 +11,4 @@ proxy.liangshan.me ansible_ssh_user=root
 [ALIYUN:children]
 ALIYUN-SV
 ALIYUN-PROXY
+ALIYUN-HK
